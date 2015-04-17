@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>A Web App with Aurelia developed by Wang, Zhenjun</title>
+    <link rel="stylesheet" type="text/css" href="jspm_packages/npm/font-awesome@4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+</head>
+
+<body aurelia-app>
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+    System.config({
+        "paths": {
+            "*": "dest/*.js"
+        }
+    });
+    </script>
+    <script>
+    System.baseUrl = 'dest';
+    System.import("aurelia-bootstrapper").catch(console.error.bind(console));
+    </script>
+</body>
+
+</html>
