@@ -1,13 +1,26 @@
-export class Welcome {
-  constructor() {
-    this.name = 'Welcom to A Web App!';
-  }
+import {
+  Router
+}
+from 'aurelia-router';
 
-  get message() {
-    return `${this.name}`;
+export class App {
+  static inject() {
+    return [Router];
   }
-
-  sayHello() {
-    alert(`Hello, ${this.message}`);
+  constructor(router) {
+    this.router = router;
+    this.router.configure(config => {
+      config.title = 'A Aurelia App';
+      config.map([{
+        route: ['', 'welcome'],
+        moduleId: 'sample/welcome',
+        nav: true,
+        title: 'Welcome'
+      }, {
+        route: 'flickr',
+        moduleId: 'sample/flickr',
+        nav: true
+      }]);
+    });
   }
 }
