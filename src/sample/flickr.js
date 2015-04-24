@@ -1,14 +1,11 @@
-import {
-  HttpClient
-}
-from 'aurelia-http-client';
-
-var url = 'http://api.flickr.com/services/feeds/photos_public.gne?tags=rainier&tagmode=any&format=json';
+import {HttpClient} from 'aurelia-http-client';
 
 export class Flickr {
   static inject() {
     return [HttpClient];
   }
+
+  url = 'http://api.flickr.com/services/feeds/photos_public.gne?tags=rainier&tagmode=any&format=json';
   constructor(http) {
     this.heading = 'Flickr';
     this.images = [];
@@ -16,7 +13,7 @@ export class Flickr {
   }
 
   activate() {
-    return this.http.jsonp(url).then(response => {
+    return this.http.jsonp(this.url).then(response => {
       this.images = response.content.items;
     });
   }
@@ -25,3 +22,4 @@ export class Flickr {
     return confirm('Are you sure you want to leave?');
   }
 }
+

@@ -1,12 +1,13 @@
-import {
-  Router
-}
-from 'aurelia-router';
+import {inject} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
+import 'bootstrap';
+import 'bootstrap/css/bootstrap.css!';
 
+@inject(Router)
 export class App {
-  static inject() {
-    return [Router];
-  }
+  // static inject() {
+  //   return [Router];
+  // }
   constructor(router) {
     this.router = router;
     this.router.configure(config => {
@@ -15,7 +16,7 @@ export class App {
         route: ['', 'welcome'],
         moduleId: 'sample/welcome',
         nav: true,
-        title: 'Welcome'
+        title: '欢迎'
       }, {
         route: 'flickr',
         moduleId: 'sample/flickr',
